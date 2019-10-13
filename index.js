@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const launch_timestamp = Date.now();
 const socket = require('socket.io');
 const Discord = require('discord.js');
 const client = new Discord.Client(); // Client = FutoX
@@ -35,7 +36,11 @@ app.get('/api', (rep, res) => {
   if (coredevs.length === 0 || Object.keys(avatars).length === 0) {
     res.status(501).send('Error 501 (Not Implemented) Server lacks ability to fulfill the request, try again soon.');
   } else {
-    res.json({ coredevs, avatars, });
+    res.json({
+      coredevs,
+      avatars,
+      launch_timestamp,
+    });
   }
 });
 app.use('/', express.static('public/home'));

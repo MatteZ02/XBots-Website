@@ -17,14 +17,14 @@ body {
 }
 .bots {
   height: 45vh;
-  min-height: 300px;
+  min-height: 350px;
   font-size: 0;
   justify-content: center;
 }
 .bots > div {
   width: 50%;
   height: 100%;
-  min-width: 200px;
+  min-width: 250px;
 }
 .bot {
   display: inline-flex;
@@ -62,20 +62,21 @@ body {
   font-size: 2.5vw;
   margin-top: 52.5%;
   width: 40%;
-  margin-left: 2.5%;
+  margin-left: 5%;
   min-width: inherit;
   text-align: center;
   color: #ddd;
 }
-@media (max-width: 400px) {
+@media (max-width: 500px) {
   .bot {
     display: table;
     margin: 0 auto;
   }
   .name {
-    font-size: 11vw;
+    font-size: 13vw;
   }
   .desc {
-    font-size: 4vw;
+    font-size: 6vw;
+    margin-left: 2.5%;
   }
 }
