@@ -21,19 +21,22 @@ client.on('ready', async () => {
     coredevs.push({
       tag: guildMember.user.tag,
       id: guildMember.user.id,
-      avatarURL: guildMember.user.displayAvatarURL({ format: 'png', size: 512, }),
+      avatarURL: guildMember.user.displayAvatarURL({ format: 'png', size: 256, }),
     });
   });
   avatars = {
-    futox: client.user.displayAvatarURL({ format: 'png', size: 2048, }),
-    musix: client.users.get('607266889537945605').displayAvatarURL({ format: 'png', size: 2048, }),
+    futox: client.user.displayAvatarURL({ format: 'png', size: 1024, }),
+    musix: client.users.get('607266889537945605').displayAvatarURL({ format: 'png', size: 1024, }),
   };
 });
 
 app.listen(port, () => console.log(`- Active on port ${port} -`));
 app.get('/api', (rep, res) => { 
-  res.json({ coredevs, avatars, });
+  if (coredevs.length === 0 || Object.keys(avatars).length === 0) {
+    res.status(501).send('Error 501 (Not Implemented) Server lacks ability to fulfill the request, try again soon.');
+  } else {
+    res.json({ coredevs, avatars, });
+  }
 });
-
-app.get('/', express.static('public/home'));
-app.get('/activity', express.static('public/activity'));
+app.use('/', express.static('public/home'));
+app.use('/activity', express.static('public/activity'));

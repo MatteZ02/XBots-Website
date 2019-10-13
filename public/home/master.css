@@ -1,3 +1,74 @@
+* {
+  margin: 0;
+  font-family: sans-serif;
+}
 body {
-  background-color: red;
+  background-color: black;
+  height: 100vh;
+  width: 100vw;
+  background-image: url('./img/background.png');
+  background-size: cover;
+  background-position: center;
+}
+.bots {
+  height: 45vh;
+  min-height: 300px;
+  font-size: 0;
+  justify-content: center;
+}
+.bots > div {
+  width: 50%;
+  height: 100%;
+  min-width: 200px;
+}
+.bot {
+  display: inline-flex;
+}
+.avtwrapper {
+  width: 50vw;
+  position: absolute;
+  min-width: inherit;
+}
+.avatar {
+  width: 35vw;
+  min-width: 100px;
+  height: 35vw;
+  min-height: 100px;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  margin: 20px auto;
+  box-shadow: 0 0 20px -5px black;
+  background-size: contain;
+}
+.name {
+  font-size: 9vw;
+  width: 50%;
+  text-align: center;
+  color: white;
+  margin-top: 40%;
+  height: 50px;
+  position: absolute;
+  min-width: inherit;
+}
+.desc {
+  position: absolute;
+  font-size: 2.5vw;
+  margin-top: 55%;
+  width: 40%;
+  margin-left: 5%;
+  min-width: inherit;
+  text-align: justify;
+  color: #ddd;
+}
+@media (max-width: 400px) {
+  .bot {
+    display: table;
+    margin: 0 auto;
+  }
+  .name {
+    font-size: 11vw;
+  }
+  .desc {
+    font-size: 4vw;
+  }
 }
