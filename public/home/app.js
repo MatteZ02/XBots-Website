@@ -8,5 +8,13 @@ Http.onreadystatechange = (e) => {
     console.log(response);
     $('.avatar.futox').css('background-image', `url(${response.avatars.futox})`);
     $('.avatar.musix').css('background-image', `url(${response.avatars.musix})`);
+    $('.name.futox').css({
+      'color': response.colors.futox,
+      'text-shadow': `0 0 15px ${response.colors.futox}`,
+    });  
+    $('.name.musix').css({
+      'color': response.colors.musix,
+      'text-shadow': `0 0 15px ${response.colors.musix}`,
+    });
   }
 }

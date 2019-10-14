@@ -8,6 +8,7 @@ const app = express();
 const port = process.env.PORT || 5000;
 const coredevs = []; 
 let avatars = {};
+let colors = {};
 require('dotenv/config');
 
 client.login(process.env.FUTOXTOKEN);
@@ -29,6 +30,10 @@ client.on('ready', async () => {
     futox: client.user.displayAvatarURL({ format: 'png', size: 1024, }),
     musix: client.users.get('607266889537945605').displayAvatarURL({ format: 'png', size: 1024, }),
   };
+  colors = {
+    futox: client.guilds.get('583597555095437312' /* xbots support */).roles.find(x => x.name === 'FutoX' && x.managed).hexColor,
+    musix: client.guilds.get('583597555095437312' /* xbots support */).roles.find(x => x.name === 'Musix' && x.managed).hexColor,
+  }
 });
 
 app.listen(port, () => console.log(`- Active on port ${port} -`));
@@ -40,6 +45,7 @@ app.get('/api', (rep, res) => {
       coredevs,
       avatars,
       launch_timestamp,
+      colors,
     });
   }
 });
