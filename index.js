@@ -11,6 +11,7 @@ let avatars = {};
 let colors = {};
 require('dotenv/config');
 app.use(express.json({ limit: '1mb', }));
+if (!process.env.API_KEY) process.env.API_KEY = '12345';
 
 client.login(process.env.FUTOXTOKEN);
 
