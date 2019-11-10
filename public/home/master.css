@@ -14,36 +14,45 @@ body {
   background-size: cover;
   background-position: center;
   position: fixed;
+  z-index: -2;
 }
 .bots {
-  height: 45vh;
-  min-height: 350px;
+  height: 55vh;
+  min-height: 300px;
+  max-height: 500px;
   font-size: 0;
   justify-content: center;
 }
-.bots > div {
-  width: 50%;
-  height: 100%;
-  min-width: 250px;
-}
 .bot {
+  width: 35%;
+  height: 100%;
+  min-width: 200px;
+  max-width: 600px;
+  background-color: rgba(255, 0, 0, 0.3);
+  overflow: hidden;
   display: inline-flex;
+  border: 1px solid cyan;
 }
 .avtwrapper {
-  width: 50vw;
-  position: absolute;
-  min-width: inherit;
+  width: 100%;
+  height: 50%;
+  background-color: rgba(0, 255, 0, 0.15);
+}
+.avtcontainer {
+  width: 10vw;
+  height: 10vw;
+  background-color: rgba(0, 0, 255, 0.2);
+  min-width: 175px;
+  min-height: 175px;
 }
 .avatar {
-  width: 35vw;
-  min-width: 100px;
-  height: 35vw;
-  min-height: 100px;
-  background-color: rgba(255, 255, 255, 0.4);
+  height: 50px;
+  width: 50px;
+  background-color: rgba(0, 0, 0, 0.6);
   border-radius: 50%;
-  margin: 20px auto;
   box-shadow: 0 0 20px -5px black;
   background-size: contain;
+  margin: 0 auto;
 }
 .name {
   text-shadow: 0 0 15px black;
@@ -66,17 +75,4 @@ body {
   min-width: inherit;
   text-align: center;
   color: #ddd;
-}
-@media (max-width: 500px) {
-  .bot {
-    display: table;
-    margin: 0 auto;
-  }
-  .name {
-    font-size: 13vw;
-  }
-  .desc {
-    font-size: 6vw;
-    margin-left: 2.5%;
-  }
 }

@@ -1,15 +1,16 @@
 const express = require('express');
 const path = require('path');
 const launch_timestamp = Date.now();
-const socket = require('socket.io');
 const Discord = require('discord.js');
 const client = new Discord.Client(); // Client = FutoX
 const app = express();
 const port = process.env.PORT || 5000;
 const coredevs = []; 
+const activity = [];
 let avatars = {};
 let colors = {};
 require('dotenv/config');
+app.use(express.json({ limit: '1mb', }));
 
 client.login(process.env.FUTOXTOKEN);
 
@@ -49,5 +50,22 @@ app.get('/api', (rep, res) => {
     });
   }
 });
+app.get('/api/activity', (req, res) => { 
+  res.json({
+    activity,
+  });
+});
 app.use('/', express.static('public/home'));
 app.use('/activity', express.static('public/activity'));
+app.post('/activity', (req, res) => {
+  console.log('request');
+  if (!req.body.api_key || req.body.api_key !== process.env.API_KEY) return res.sendStatus(401);
+  if (req.body) {
+    res.sendStatus(200);
+  } else {
+    return res.sendStatus(400);
+  }
+  console.log(req.body);
+  activity.push(req.body.type);
+  if (activity.length > 50) activity.shift();
+});
