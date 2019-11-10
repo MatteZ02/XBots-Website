@@ -58,15 +58,12 @@ app.get('/api/activity', (req, res) => {
 });
 app.use('/', express.static('public/home'));
 app.use('/activity', express.static('public/activity'));
-app.post('/activity', (req, res) => {
-  console.log('request');
+app.post('/api/activity', (req, res) => {
+  console.log('request', req.body);
+  if (!req.body) return res.sendStatus(400);
   if (!req.body.api_key || req.body.api_key !== process.env.API_KEY) return res.sendStatus(401);
-  if (req.body) {
-    res.sendStatus(200);
-  } else {
-    return res.sendStatus(400);
-  }
+  delete req.body.api_key;
   console.log(req.body);
-  activity.push(req.body.type);
+  activity.push(req.body);
   if (activity.length > 50) activity.shift();
 });
