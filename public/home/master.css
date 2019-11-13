@@ -16,7 +16,7 @@ body {
 .bots {
   width: 70%;
   margin-left: 15%;
-  height: 30vw;
+  height: 34vw;
 }
 .bot {
   width: 24%;
@@ -62,18 +62,65 @@ body {
 #musix-avatar {
   background-image: url('https://cdn.discordapp.com/avatars/607266889537945605/fd4d7ec1b2b50ead0048d5a566395b59.png?size=2048');
 }
-article {
+.article {
   width: 84%;
   margin-left: 8%;
 }
-article h1 {
+.article h1 {
   font-size: 34px;
   margin: 20px 0 10px 10px;
 }
-article p {
+.article p {
   font-size: 20px;
   line-height: 1.6;
 }
-article a {
+.article a {
   color: white;
+}
+@media (max-width: 768px) {
+  #title {
+    font-size: 12vw;
+  }
+  .bot {
+    float: none;
+    margin: 0;
+    width: 80%;
+    height: 40%;
+    border-radius: 7vw;
+    margin-bottom: 17%;
+    text-align: center;
+    margin-left: 6vw;
+  }
+  .bot h1 {
+    font-size: 9vw;
+  }
+  .avatar {
+    width: 40%;
+    margin-left: 30%;
+    padding-bottom: 40%;
+  }
+  .bot p {
+    font-size: 6vw;
+  }
+  .bots {
+    height: 250vw;
+    width: 100%;
+    text-align: center;
+    margin-left: 0;
+  }
+  #musix {
+    float: none;
+  }
+  .article h1 {
+    font-size: 35px;
+  }
+  .article p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  body {
+    background-image: url('./img/mobile_background.png');
+    background-size: cover;
+    background-position: bottom;
+  }
 }
