@@ -1,78 +1,79 @@
-* {
-  margin: 0;
-  font-family: sans-serif;
-}
 body {
-  background-color: black;
-  height: 100vh;
-  width: 100vw;
-}
-#background {
-  height: 100vh;
-  width: 100vw;
+  margin: 0;
   background-image: url('./img/background.png');
   background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   background-position: center;
-  position: fixed;
-  z-index: -2;
+  color: white;
+  font-family: sans-serif;
+}
+#title {
+  text-align: center;
+  font-size: 6vw;
+  margin-top: 20px;
 }
 .bots {
-  height: 55vh;
-  min-height: 300px;
-  max-height: 500px;
-  font-size: 0;
-  justify-content: center;
+  width: 70%;
+  margin-left: 15%;
+  height: 30vw;
 }
 .bot {
-  width: 35%;
-  height: 100%;
-  min-width: 200px;
-  max-width: 600px;
-  background-color: rgba(255, 0, 0, 0.3);
-  overflow: hidden;
-  display: inline-flex;
-  border: 1px solid cyan;
+  width: 24%;
+  float: left;
+  text-align: center;
+  background-color: #72C6FF;
+  height: 24vw;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 0 30px -5px black;
+  cursor: pointer;
+  transition: 0.2s;
 }
-.avtwrapper {
-  width: 100%;
-  height: 50%;
-  background-color: rgba(0, 255, 0, 0.15);
+.bot:hover {
+  transform: scale(1.06);
 }
-.avtcontainer {
-  width: 10vw;
-  height: 10vw;
-  background-color: rgba(0, 0, 255, 0.2);
-  min-width: 175px;
-  min-height: 175px;
+#musix {
+  float: right;
+  background: linear-gradient(135deg, #000000 30%, #b50002 150%);
+}
+#futox {
+  background: linear-gradient(135deg, #000000 30%, #ffbd06 150%);
+}
+.bots h1 {
+  font-size: 3vw;
+  margin-bottom: 1.2vw;
+}
+.bots p {
+  font-size: 1.1vw;
+  line-height: 1.6;
+  margin: 0;
 }
 .avatar {
-  height: 50px;
-  width: 50px;
-  background-color: rgba(0, 0, 0, 0.6);
+  width: 60%;
+  margin-left: 20%;
+  padding-bottom: 60%;
+  background-size: cover;
   border-radius: 50%;
-  box-shadow: 0 0 20px -5px black;
-  background-size: contain;
-  margin: 0 auto;
 }
-.name {
-  text-shadow: 0 0 15px black;
-  font-size: 9vw;
-  width: 50%;
-  text-align: center;
+#futox-avatar {
+  background-image: url('https://cdn.discordapp.com/avatars/485430484424196106/eb81b569222dbb4f9add0a31b2744acd.png?size=2048');
+}
+#musix-avatar {
+  background-image: url('https://cdn.discordapp.com/avatars/607266889537945605/fd4d7ec1b2b50ead0048d5a566395b59.png?size=2048');
+}
+article {
+  width: 84%;
+  margin-left: 8%;
+}
+article h1 {
+  font-size: 34px;
+  margin: 20px 0 10px 10px;
+}
+article p {
+  font-size: 20px;
+  line-height: 1.6;
+}
+article a {
   color: white;
-  margin-top: 40%;
-  height: 50px;
-  position: absolute;
-  min-width: inherit;
-}
-.desc {
-  text-shadow: 0 0 5px black;
-  position: absolute;
-  font-size: 2.5vw;
-  margin-top: 52.5%;
-  width: 40%;
-  margin-left: 5%;
-  min-width: inherit;
-  text-align: center;
-  color: #ddd;
 }
