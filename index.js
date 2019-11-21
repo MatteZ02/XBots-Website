@@ -56,8 +56,7 @@ app.get('/api/activity', (req, res) => {
     activity,
   });
 });
-app.use('/', express.static('public/home'));
-app.use('/activity', express.static('public/activity'));
+app.use('/', express.static('public'));
 app.post('/api/activity', (req, res) => {
   console.log('request', req.body);
   if (!req.body) return res.sendStatus(400);
