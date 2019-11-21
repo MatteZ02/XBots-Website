@@ -9,21 +9,21 @@ header {
   background-color: #313131;
   height: auto;
 }
-ul {
+header ul {
   list-style-type: none;
   margin: 0 30px 0 0;
   padding: 0;
   overflow: hidden;
 }
 
-li {
+header li {
   float: right;
   transition: 0.13s;
 }
-li:hover {
+header li:hover {
   background-color: rgba(0, 0, 0, 0.15);
 }
-li a {
+header li a {
   display: block;
   color: white;
   text-align: center;
@@ -31,7 +31,40 @@ li a {
   text-decoration: none;
   font-size: 20px;
 }
-a {
+header a {
   text-decoration: none;
   color: white;
+}
+
+.leftnav {
+  width: 13%;
+  height: 100%;
+  min-width: 170px;
+  background-color: #789eff;
+  color: white;
+}
+.leftnav p, .leftnav ul {
+  margin: 0;
+  list-style-type: none;
+  padding: 0;
+}
+.leftnav p {
+  font-size: 28px;
+  padding: 4px 0 4px 6px;
+}
+.leftnav li {
+  text-align: right;
+  padding: 4px 16px 6px 0;
+  margin-bottom: 10px;
+  border-right: 0 solid rgba(180, 210, 255, 1);
+  cursor: pointer;
+  transition: 0.1s;
+}
+.leftnav a {
+  text-decoration: none;
+  color: inherit;
+}
+.leftnav li:hover {
+  border-right: 8px solid rgba(180, 210, 255, 1);
+  padding-right: 18px;
 }

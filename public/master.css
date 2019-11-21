@@ -12,6 +12,7 @@ body {
   text-align: center;
   font-size: 6vw;
   margin-top: 20px;
+  text-shadow: 0 0 14px white;
 }
 .bots {
   width: 70%;
@@ -43,6 +44,7 @@ body {
 .bots h1 {
   font-size: 3vw;
   margin-bottom: 1.2vw;
+  text-shadow: 0 0 6px white;
 }
 .bots p {
   font-size: 1.1vw;
