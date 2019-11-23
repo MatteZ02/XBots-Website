@@ -51,8 +51,10 @@ app.get('/api', (rep, res) => {
     });
   }
 });
-app.get('/api/activity', (req, res) => { 
-  res.json({
+app.get('/api/activity', (req, res) => {
+  console.log('GET to /api/activity');
+  if (!req.query || req.query.api_key !== '12345') return res.sendStatus(400);
+  res.sendStatus(200).json({
     activity,
   });
 });

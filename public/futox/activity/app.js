@@ -1,36 +1,17 @@
-//const Http = new XMLHttpRequest();
-console.log('hello');
-const url = '/api/activity';
-const activity = [
+const url = '/api/activity?api_key=12345';
+let activity = [
   {
     command: 'sup',
     args: [],
     responses: ['hey!'],
     error: null,
   },
-  {
-    command: 'userinfo',
-    args: ['38400'],
-    responses: ['[Embed]'],
-    error: null,
-  },
-  {
-    command: 'weather',
-    args: ['helsinki'],
-    responses: ['[Embed]'],
-    error: null,
-  }
 ];
-/*
-Http.open("GET", url);
-Http.send();
-Http.onreadystatechange = (e) => {
-  if (e.target.readyState === 4) {
-    const response = JSON.parse(e.target.responseText);
-    console.log(response);
-    activity = response.activity;
-  }
-}*/
+async function fetchActivity() {
+  const response = await fetch(url);
+  const json = await response.json();
+  return json.activity;
+}
 
 class Command {
   constructor(param) {
@@ -40,7 +21,6 @@ class Command {
     this.error = param.error ? param.error : null;
   }
   render() {
-    console.log('thibg');
     const wrapper = document.createElement('div');
     $(wrapper).attr('class', 'grey-border wrapper');
 
@@ -69,7 +49,14 @@ class Command {
   }
 }
 
-activity.forEach(x => {
-  console.log('thing');
-  new Command(x).render()
+function updateActivity() {
+  activity.forEach(x => {
+    console.log('thing');
+    new Command(x).render()
+  });
+}
+
+fetchActivity().then(json => {
+  activity = json;
+  updateActivity();
 });
