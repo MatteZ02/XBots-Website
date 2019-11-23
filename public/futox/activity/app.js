@@ -1,12 +1,5 @@
 const url = '/api/activity?api_key=12345';
-let activity = [
-  {
-    command: 'sup',
-    args: [],
-    responses: ['hey!'],
-    error: null,
-  },
-];
+let activity = [];
 async function fetchActivity() {
   const response = await fetch(url);
   const json = await response.json();
@@ -17,15 +10,12 @@ class Command {
   constructor(param) {
     this.command = param.command;
     this.args = param.args ? param.args : [''];
-    this.responses = param.responses ? param.responses : [''];
+    this.responses = param.responses ? param.responses.map(x => x.replace(new RegExp('\\*\\*', 'g'), '')).reverse() : [''];
     this.error = param.error ? param.error : null;
   }
   render() {
     const wrapper = document.createElement('div');
     $(wrapper).attr('class', 'grey-border wrapper');
-
-    const yellowborder = document.createElement('div');
-    $(yellowborder).attr('class', 'yellowborder');
 
     const text = document.createElement('div');
     $(text).attr('class', 'text-div');
@@ -39,20 +29,26 @@ class Command {
     const args = document.createElement('p');
     $(args).attr('class', 'text text-darker').text(this.args.join(' '));
 
+    const responsesTitle = document.createElement('p');
+    $(responsesTitle).attr('class', 'other-text text-lighter').text('FutoX Responses:');
+
+    const responses = document.createElement('p');
+    $(responses).attr('class', 'other-text text-darker').html(this.responses.join('<br>'));
+
     $(text).append(prefix);
     $(text).append(command);
     $(text).append(args);
 
-    $(wrapper).append(yellowborder).append(text);
+    $(wrapper).append(text).append(responsesTitle).append(responses);
 
     $('#activity').append(wrapper);
   }
 }
 
 function updateActivity() {
-  activity.forEach(x => {
-    console.log('thing');
-    new Command(x).render()
+  $('#activity').html('');
+  activity.slice(0, 20).forEach(x => {
+    new Command(x).render();
   });
 }
 
@@ -60,3 +56,10 @@ fetchActivity().then(json => {
   activity = json;
   updateActivity();
 });
+
+setInterval(() => {
+  fetchActivity().then(json => {
+    activity = json;
+    updateActivity();
+  });
+}, 60000);
